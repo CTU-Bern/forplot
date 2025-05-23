@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.2</span>
       </span>
     </div>
 
@@ -168,6 +168,20 @@
 <span>    xtitle<span class="op">=</span><span class="va">xtitle</span>,xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span>,shift_xaxis<span class="op">=</span><span class="fl">0.3</span>,xlab_line<span class="op">=</span><span class="op">-</span><span class="fl">0.8</span>,</span>
 <span>    headline<span class="op">=</span><span class="fl">2</span>,bottomline<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-11-1.png"><!-- --></p>
+<p>If effect measures are on the log-scale (e.g. for odds ratios), option lscale can be used to indicate that the text should contain the exponentiated values. Axis ticks and labels have to be adapted by hand.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">xlab_text</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.5</span>,<span class="fl">0.8</span>,<span class="fl">1.0</span>,<span class="fl">1.5</span><span class="op">)</span></span>
+<span><span class="va">xlab</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">xlab_text</span><span class="op">)</span></span>
+<span><span class="va">xlim</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">xlab_text</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">xlab_text</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/fplot.html">fplot</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">forplotdata</span>,header<span class="op">=</span><span class="va">header</span>,lwidths<span class="op">=</span><span class="va">lwidths</span>,lheights<span class="op">=</span><span class="va">lheights</span>,</span>
+<span>  ref<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">0</span>,col<span class="op">=</span><span class="fl">2</span>,extend<span class="op">=</span><span class="fl">2</span><span class="op">)</span>,</span>
+<span>  lscale<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span>    xtitle<span class="op">=</span><span class="va">xtitle</span>,shift_xaxis<span class="op">=</span><span class="fl">0.3</span>,xlab_line<span class="op">=</span><span class="op">-</span><span class="fl">0.8</span>,</span>
+<span>  xlim<span class="op">=</span><span class="va">xlim</span>,xlab<span class="op">=</span><span class="va">xlab</span>, xlab_text<span class="op">=</span><span class="va">xlab_text</span>,</span>
+<span>    headline<span class="op">=</span><span class="fl">2</span>,bottomline<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-12-1.png"><!-- --></p>
 </div>
 </div>
   </div>
